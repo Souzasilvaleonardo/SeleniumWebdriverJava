@@ -26,6 +26,7 @@ public class LoginPage extends RunCucumber {
         clickElement(botaoAcessarLogin);
     }
     public void preencheEmail(String email){
+
         filField(campoEmail, email);
     }
     public void preencherSenha(String senha){
