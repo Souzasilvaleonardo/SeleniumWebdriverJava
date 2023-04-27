@@ -38,10 +38,12 @@ jobs:
 
     # gerar o relatorio
       - name: Gerar relatório
+        if: always()
         run: mvn cluecumber-report:reporting
 
 
       - name: Arquivar relatório
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: report-tests
