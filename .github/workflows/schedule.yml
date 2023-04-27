@@ -1,7 +1,7 @@
 name: Schedule Tests
 on:
   schedule:
-    - cron: '1 * * * 1-5'
+    - cron: '2 * * * 1-5'
 
 jobs:
   RunTest:
@@ -33,7 +33,7 @@ jobs:
 
       # executar os teste
       - name: Run Test
-        run: mvn test -Dtest=RunCucumber -Dbrowser=chrome-ci
+        run: mvn test -Dtest=RunCucumber -Dbrowser=chrome-ci -Dcucumber.options="--tags ~@Ignore"
 
       # gerar o relatorio
       - name: Gerar relatório

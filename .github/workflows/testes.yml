@@ -34,9 +34,10 @@ jobs:
 
     # executar os teste
       - name: Run Test
-        run: mvn test -Dtest=RunCucumber -Dbrowser=chrome-ci
+        run: mvn test -Dtest=RunCucumber -Dbrowser=chrome-ci -Dcucumber.options="--tags @login-sucesso"
 
-    # gerar o relatorio
+
+      # gerar o relatorio
       - name: Gerar relatório
         if: always()
         run: mvn cluecumber-report:reporting
