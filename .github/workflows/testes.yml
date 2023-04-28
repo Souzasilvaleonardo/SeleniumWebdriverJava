@@ -50,6 +50,25 @@ jobs:
           name: report-tests
           path: '**/formated-report/'
 
+      - name: Enviar notificação Discord - Sucesso
+        if: ${{ success() }}
+        uses: rjstone/discord-webhook-notify@v1
+        with:
+          severity: info
+          details: Test Succeeded!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+
+
+
+      - name: Enviar notificação Discord - Falha
+        if: ${{ failure() }}
+        uses: rjstone/discord-webhook-notify@v1
+        with:
+          severity: error
+          details: Test Failed!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+
+
 
 
 
